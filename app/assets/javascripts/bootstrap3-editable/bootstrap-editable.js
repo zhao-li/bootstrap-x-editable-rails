@@ -1439,15 +1439,13 @@ Applied as jQuery method.
         },
         
         innerShow: function () {
-            this.$element.hide();
+            this.$element.addClass('hide');
             this.tip().insertAfter(this.$element).show();
         }, 
         
         innerHide: function () {
-            this.$tip.hide(this.options.anim, $.proxy(function() {
-                this.$element.show();
-                this.innerDestroy();
-            }, this)); 
+            this.$element.removeClass('hide');
+            this.innerDestroy();
         },
         
         innerDestroy: function() {
